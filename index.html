@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cuestionario de Diseño Web</title>
+  <script>
+    function validarCuestionario() {
+      var respuestasCorrectas = 0;
+      var preguntas = document.getElementsByClassName('pregunta');
+
+      // Recorrer todas las preguntas
+      for (var i = 0; i < preguntas.length; i++) {
+        var respuestaUsuario = preguntas[i].value;
+        var respuestaCorrecta = preguntas[i].getAttribute('data-respuesta');
+
+        // Comprobar si la respuesta es correcta
+        if (respuestaUsuario.toLowerCase() === respuestaCorrecta.toLowerCase()) {
+          respuestasCorrectas++;
+        }
+      }
+
+      // Mostrar resultados
+      alert("Has terminado el cuestionario.\nRespuestas correctas: " + respuestasCorrectas + " de " + preguntas.length);
+
+      // Prevenir el envío del formulario
+      return false;
+    }
+  </script>
+</head>
+<body>
+  <h1>Cuestionario de Diseño Web</h1>
+  <form onsubmit="return validarCuestionario();">
+    <div>
+      <label>Pregunta 1: ¿Qué significa CSS en diseño web?</label>
+      <input type="text" class="pregunta" data-respuesta="Cascading Style Sheets">
+    </div>
+    <div>
+      <label>Pregunta 2: ¿Cuál es el elemento HTML para crear una lista ordenada?</label>
+      <input type="text" class="pregunta" data-respuesta="ol">
+    </div>
+    <div>
+      <label>Pregunta 3: ¿Cuál es el atributo HTML para establecer el color de fondo de un elemento?</label>
+      <input type="text" class="pregunta" data-respuesta="style">
+    </div>
+    <div>
+      <label>Pregunta 4: ¿Qué lenguaje se utiliza para interactuar con el DOM en JavaScript?</label>
+      <input type="text" class="pregunta" data-respuesta="JavaScript">
+    </div>
+    <div>
+      <label>Pregunta 5: ¿Cuál es el atributo para especificar la dirección de una imagen en HTML?</label>
+      <input type="text" class="pregunta" data-respuesta="src">
+    </div>
+    <button type="submit">Enviar respuestas</button>
+  </form>
+</body>
+</html>
